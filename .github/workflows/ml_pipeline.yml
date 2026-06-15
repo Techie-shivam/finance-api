@@ -2,67 +2,6 @@ name: ML Pipeline
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  ml-pipeline:
-    runs-on: ubuntu-latest
-
-    steps:
-
-      # ----------------------------------------
-      # Step 1: Pull your code
-      # ----------------------------------------
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # ----------------------------------------
-      # Step 2: Set up Python 3.12
-      # ----------------------------------------
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      # ----------------------------------------
-      # Step 3: Install all dependencies
-      # ----------------------------------------
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-
-      # ----------------------------------------
-      # Step 4: Train the model
-      # ----------------------------------------
-      - name: Train model
-        run: python src/models/train_classifier.py
-
-      # ----------------------------------------
-      # Step 5: Run tests
-      # ----------------------------------------
-      - name: Run model tests
-        run: python src/models/test_model.py
-
-      # ----------------------------------------
-      # Step 6: Verify API starts without errors
-      # ----------------------------------------
-      - name: Check API starts
-        run: |
-          uvicorn src.api.serve:app --port 8000 &
-          sleep 5
-          curl -f http://localhost:8000/health
-          echo "API is healthy ✅"
-
-
-name: ML Pipeline
-
-on:
-  push:
     branches: [main]
   pull_request:
     branches: [main]
