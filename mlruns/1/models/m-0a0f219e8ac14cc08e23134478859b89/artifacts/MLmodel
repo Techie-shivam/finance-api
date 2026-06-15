@@ -1,0 +1,23 @@
+artifact_path: file:C:/Users/Lenovo/OneDrive/Documents/finance-project/mlruns/1/models/m-0a0f219e8ac14cc08e23134478859b89/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.10
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.13.0
+model_id: m-0a0f219e8ac14cc08e23134478859b89
+model_size_bytes: 4030
+model_uuid: m-0a0f219e8ac14cc08e23134478859b89
+prompts: null
+run_id: 75ea3eabb6aa43cbae8e89c8c4bbe79c
+utc_time_created: '2026-06-15 17:55:13.431539'
